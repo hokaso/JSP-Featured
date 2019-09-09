@@ -1,0 +1,609 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	overflow-x: hidden;
+}
+.header-nav{
+	height: 30px;
+	background: #ddd;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+.header-nav .teach{
+	width: 90%;
+	margin: 0 auto;
+	height: 100%;
+	line-height: 30px;
+}
+.header-nav .teach span{
+	margin-left: 10px;
+	margin-right: 40px;
+	color: black;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.header-nav .teach span:hover{
+	color: #41aabf;
+}
+/* 顶部的大div，存放logo，搜索，登录等 */
+.top-divfu {
+	height: 100px;
+	//background-color: #eee;
+	//position: absolute;
+}
+/* 顶部小div，居中用 */
+.top-divzi {
+	margin: 0 auto;
+	width: 1200px;
+	height: 40px;
+	//background-color: #00FFCC;
+	position: relative;
+	top: 30px;
+}
+
+.top-divzi-1{
+	width:240px;
+	height:40px;
+	//background-color:#FFFF77;
+	float:left;
+}
+
+.top-divzi-2{
+	width:370px;
+	height:40px;
+	float:left;
+	position:relative;
+	left:150px;
+}
+
+.top-divzi-3{
+	width:550px;
+	height:40px;
+	float:left;
+	position:relative;
+	left:210px;
+}
+
+.searchInput{
+	border: 1px solid rgba(80, 139, 213);
+	width:300px;
+	height:32px;
+	position:relative;
+	top:2px;
+	outline: none;
+}
+.search{
+	color:white;
+	width:50px;
+	height:35px;
+	border: none;
+	position:relative;
+	left:-6px;
+	top:2px;
+	background-color:#41aabf;
+	outline: none;
+}
+/* 存放登录/注册等的ul的id */
+#menu{
+	font-size:16px;
+	position:relative;
+	left:100px;
+	top:15px;
+}
+
+a{
+	color:#6F6F6F;
+	font-size:16px;
+	text-decoration:none;//去掉下划线
+}
+
+a:hover{
+	color:#41aabf;
+}
+
+.main-and-sliderShow{
+	width:100%;
+	height: 540px;
+}
+/* 课程类别主div */
+.main{
+	height:40px;
+	//position:relative;
+	background-color:#41aabf;
+}
+
+.main-center{
+	margin: 0 auto;
+	width:1180px;
+	height:40px;
+	position: relative;
+}
+
+.kecheng{
+	/* 包含课程类型（电脑办公、工业设计等）的ul标签 */
+	
+	text-indent:100px;
+	
+	left:140px;
+}
+li{
+		color:#FFF;
+		float:left;
+		width:80px;
+		height:30px;
+		font-size:16px;
+		line-height:10px;
+		list-style:none;//去掉圆点
+	}
+#sname{
+	width:120px;
+}
+#spri{
+	width:100px;
+	color:#555;
+}
+.kecheng li{
+	color:#FFF;
+	float:left;
+	width:115px;
+	height:40px;
+	text-indent: 23px;//文字右移25px;
+		/* padding-left: 30px;
+		padding-right: 30px; */
+	z-index: 1;
+	font-size:17px;
+	line-height:40px;
+	list-style:none;//去掉圆点
+	position: absolute;
+	}
+
+.kecheng li:hover{
+	background-color:rgb(133, 206, 224);
+}
+/* 鼠标移动至课程类别时要显示的div，display：none先将盒子隐藏 */
+.course-type{
+	width:401px;
+	height:200px;
+	position: absolute;
+	background-color:rgba(230, 230, 230,0.8); 
+	display: none;
+	z-index: 2;
+}
+
+.course-type:hover{
+	display: block;
+	background: rgba(230, 230, 230,1)
+}
+/* 左边课程列表 */
+.link-line-1{
+	width:200px;
+	height:170px;
+	float: left;
+	position:relative;
+	border-right:solid #acc0d8 1px;
+}
+/* 右边 */
+.link-line-2{
+	width:200px;
+	height:170px;
+	float:left;
+	position:relative;
+}
+/* 设置div中字体的大小 */
+.course-type div a{
+	color: #444;
+	font-size: 13px;
+}
+.course-type div a:hover{
+	color:#41aabf;
+}
+/*“更多” 的样式*/
+.course-more{
+	width:400px;
+	height:30px;
+	float:left;
+	position:relative;
+}
+.course-more a{
+	/* display: block; */
+	position: relative;
+	top:-10px;
+	left:300px;
+}
+.course-more a:hover{
+	text-decoration: underline;
+}
+/* 鼠标移动时显示div盒子 */
+.kecheng li:hover div{
+	display: block;
+}
+.homeshow-fu-fu{
+	background: #000;
+}
+/* 轮播图区域大的div */
+.homeshow-fu{
+	width: 1180px;
+	height: 500px;
+	margin: 0 auto;
+	background-color: #C4C4C4;
+	/* position: relative; */
+}
+/* 轮播图中放图片div */
+.slider-show{
+
+	width: 880px;
+	height: 500px;
+	float:left;
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+
+}
+.slider-show .banner-img {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+.slider-show .banner-img li{
+	height: 500px;
+    width: 100%;
+    margin:0 auto;
+    position: absolute;
+}
+.slider-show .banner-img li img{
+	height: 100%;
+    width: 100%;
+    
+}
+/*.slider-show img{
+	width: 100%;
+	height: 100%;
+}*/
+/* 左滑块 */
+#LSlid-btn{
+	font-size: 40px;
+	width: 55px;
+	height: 70px;
+	float: left;
+	top: 200px;
+	position: absolute;
+	z-index: 2;
+	background-color: rgba(238, 238, 238, 0.2);
+} 
+
+#LSlid-btn:hover{
+	cursor: pointer;
+	background-color: rgba(111,111,111, 0.6);
+}
+/* 右滑块 */
+#RSlid-btn{
+	font-size: 40px;
+	width: 55px;
+	height: 70px;
+	float: left;
+	left: 825px;
+	top: 200px;
+	position: absolute;
+	z-index: 2;
+	background-color: rgba(238, 238, 238, 0.2);
+} 
+
+#RSlid-btn:hover{
+	cursor: pointer;
+	background-color: rgba(111,111,111, 0.6);
+}
+
+/* 右边课程列表 */
+.homeshow-fu .right-list{
+	width:300px;
+	height:500px;
+	background-color: rgba(10, 10,10, 0.8);
+	position: absolute;
+	
+	left: 70.1%;
+	
+}
+/* 间隔显示的div */
+.interval{
+	margin: auto;
+	/*width:1180px;
+	height:50px;*/
+	background-color:#eee;
+	padding-top: 15px;
+	padding-bottom: 20px;
+}
+
+.course-list-1{
+	margin:0px auto 30px auto;
+
+	width:1180px;
+	height:380px;
+	background-color:#eee;
+	position: relative;
+}
+
+.list-leftfont{
+	width: 180px;
+	height: 315px;
+	background-color: rgba(64, 149, 232);
+	float:left;
+	position: absolute;
+}
+
+.list-center{
+	width:380px;
+	height: 315px;
+	background-color:rgba(64, 149, 232);
+	float: left;
+	position: absolute;
+	left:200px;
+}
+.news-course{
+	width: 100%;
+	height: 50px;
+}
+.news-course .news-course-txt{
+	/*margin-top: 10px;*/
+	font-size: 24px;
+	font-weight: bold;
+}
+.news-course-nav{
+	width: 100%;
+	height: 330px;
+	
+}
+.news-course-nav .detail1{
+	height: 100%;
+	width: 180px;
+	background: rgb(151,7,0);
+	text-align: center;
+	float: left;
+}
+.news-course-nav .detail1 h3{
+	padding-top: 10px;
+	color: #fff;
+}
+.news-course-nav .detail1 span{
+	display: block;
+	padding: 10px 0;
+	color: #fff;
+	font-size: 13px;
+	cursor: pointer;
+}
+.news-course-nav .detail1 span:hover{
+	text-decoration: underline;
+}
+.news-course-nav .detail2{
+	height: 100%;
+	width:380px;
+	float: left;
+	margin-left: 20px;
+}
+.news-course-nav .detail2 .detail2-txt{
+	display: block;
+	margin-top: 10px;
+}
+.news-course-nav .detail2 .detail2-txt:hover{
+	color: rgba(0, 130, 255, .8);
+	text-decoration: underline;
+	cursor: pointer;
+}
+.news-course-nav .detail2 .detail2-img{
+	height: 270px;
+	width: 100%;
+	/*background: url(../img/猴子-1.jpg) center center;*/
+}
+.news-course-nav .detail2 .detail2-img img{
+	width: 100%;
+	height: 100%;
+}
+
+ .detail2:hover{
+ 	/*border: 2px solid rgba(0, 130, 255, .8);*/
+	box-shadow: 5px 5px 6px #aaa;
+}
+.news-course-nav .detail2 .detail2-plays span{
+	float: right;
+	color: #aaa;
+	font-size: 12px;
+}
+.news-course-nav .detail2 .detail2-plays span:first-child{
+	margin-right: 7px;
+}
+.news-course-nav .detail3{
+	float: left;
+	
+	width: 600px;
+}
+.detail3 .detail3-1{
+	float: left;
+	margin-left: 20px;
+	
+	width: 180px;
+	height: 155px;
+	/*background: red;*/
+	margin-bottom: 10px;
+}
+.detail3 .detail3-1:hover{
+	box-shadow: 3px 3px 6px #aaa;
+}
+.detail3 .detail3-1:nth-child(4){
+	margin-top: 20px;
+}
+.detail3 .detail3-1 img{
+	width: 100%;
+	height: 115px;
+}
+.detail3 .detail3-1 span{
+	display: inline-block;
+	font-size: 14px;
+	color: #333;
+	cursor: pointer;
+	margin-top: 7px;
+}
+.detail3 .detail3-1 span:hover{
+	text-decoration: underline;
+	color: rgba(0, 130, 255, .8); 
+}
+.list-right-1{
+	width:180px;
+	height:147px;
+	background-color: rgba(64, 149, 232);
+	float: left;
+	position:absolute;
+	left: 600px;
+}
+.list-right-2{
+	width:180px;
+	height:147px;
+	background-color: rgba(64, 149, 232);
+	float: left;
+	position:absolute;
+	left: 800px;
+}
+.list-right-3{
+	width:180px;
+	height:147px;
+	background-color: rgba(64, 149, 232);
+	float: left;
+	position:absolute;
+	left: 1000px;
+}
+
+.list-right-4{
+	width:180px;
+	height:147px;
+	background-color: rgba(64, 149, 232);
+	float: left;
+	position:absolute;
+	left: 600px;
+	top: 217px;
+}
+.list-right-5{
+	width:180px;
+	height:147px;
+	background-color: rgba(64, 149, 232);
+	float: left;
+	position:absolute;
+	left: 800px;
+	top: 167px;
+}
+.list-right-6{
+	width:180px;
+	height:147px;
+	background-color: rgba(64, 149, 232);
+	float: left;
+	position:absolute;
+	left: 1000px;
+	top: 167px;
+}
+.right-list .right-list-header{
+	width: 100%;
+	height: 40px;
+	background: rgb(80,80,80);
+	/*line-height: 35px;*/
+	margin: 0 auto;
+}
+.right-list .right-list-header .text-left{
+	width: 100px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 63px;
+	font-size: 14px;
+	margin-top: 5px;
+	padding: 2px;
+}
+.lunbo{
+	display: block;
+	width: 56px;
+	height: 3px;
+	background: orange;
+	margin-top: 6px;
+	cursor: pointer;
+}
+.right-list .right-list-header .text-right{
+	width: 100px;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+.footer{
+    background: #ccc;
+}
+.copyright{
+    padding-top:28px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top:1px solid #ddd;
+}
+.copyright div{
+    padding:20px 0;
+}
+.copyright div a{
+    display: block;
+    height: 20px;
+    line-height: 20px;
+}
+.copyright img{
+    vertical-align: bottom;
+}
+.copyright a:hover{
+    text-decoration: underline;
+}
+.right-list{
+	margin: 0 auto;
+}
+.right-list-main{
+	width: 300px;
+
+}
+.right-list-main .small-nav{
+	padding: 6px 0;
+	width: 300px;
+	/*height: 30px;*/
+	cursor: pointer;
+	
+}
+.right-list-main .small-nav:first-child{
+	margin-top: 10px;
+}
+.right-list-main .small-nav:nth-child(n+4) .child1{
+	border: 1px solid #bbb;
+	background: rgba(10, 10,10, 0.8);
+}
+.right-list-main .small-nav:hover{
+	background: #666;
+}
+.right-list-main .small-nav .child1{
+	width: 20px;
+	height: 20px;
+	margin-left: 10px;
+	/*border: 1px solid #333;*/
+	background: orange;
+	display: inline-block;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+}
+
+.right-list-main .small-nav .child2{
+	margin-left: 10px;
+	display: inline-block;
+	font-size: 13px;
+	color: #bbb;
+}
+.right-list-hide2{
+	display: none;
+	position: absolute;
+	top: 40px;
+}

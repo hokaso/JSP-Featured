@@ -1,0 +1,207 @@
+.content-nav{
+	background: #eee;
+
+}
+.content-bottoms{
+	width: 1170px;
+	margin: 0px auto 0 auto;
+}
+.content-bottom-left{
+	float: left;
+	width: 66%;
+	background: #fff;
+	/*height: 800px;*/
+	padding-bottom: 100px;
+	margin-top: 36px;
+	margin-bottom: 50px;
+}
+
+.content-bottom-left .left-bottom-nav{
+	width: 735px;
+	margin: 0 auto;
+}
+.content-bottom-rights{
+	float: right;
+	width: 30%;
+	/*height: 200px;*/
+	background: #fff;
+	padding: 15px 15px 25px 15px;
+}
+.content-bottom-rights .course-img{
+	width: 350px;
+	display: block;
+	margin-bottom: 15px;
+}
+.content-bottom-rights .course-introduce{
+	font-size: 14px;
+	color: #666;
+	
+}
+.content-bottom-rights .teacher{
+	color: #666;
+	font-size: 14px;
+	width: 200px;
+	display: inline-block;
+}
+.content-bottom-rights .discurse{
+	color: #555;
+	font-size: 14px;
+	display: inline-block;
+}
+.content-bottom-rights input{
+	margin-top:15px;
+	width: 100%;
+	height: 30px;
+	border-radius: 4px;
+	border: none;
+	outline: none;
+	background: rgb(65,170,191);
+	cursor: pointer;
+	color: #fff;
+}
+#teach{
+	margin-bottom: 10px;
+}
+#creatTime {
+	margin-bottom: 10px;
+}
+#creatTime .creatTime{
+	color: #666;
+	font-size: 14px;
+}
+.content-bottom-rights .course-introduce .course-jianjie{
+	font-size: 13px;
+	color: #aaa;
+	
+}
+.left-bottom-header{
+	border-bottom: 1px solid #ccc;
+	height: 80px;
+}
+.left-bottom-header .gentie{
+	width: 50%;
+	height: 80px;
+	line-height: 80px;
+	float: left;
+}
+.left-bottom-header .recommend{
+	width: 50%;
+	height: 80px;
+	float: right;
+	line-height: 80px;
+	margin: 0;
+}
+.left-bottom-header .gentie img{
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	/*float: left;*/
+	margin-bottom: 15px;
+}
+.left-bottom-header .gentie .gentie-txt{
+	font-family: '楷体';
+	font-size: 35px;
+	margin-left: 30px;
+	font-weight: 700;
+}
+.left-bottom-header .recommend .person{
+	float: right;
+
+}
+.left-bottom-header .recommend .person span{
+	color: orange;
+}
+.recommends .recommend-item{
+	/*height: 110px;*/	
+	padding: 10px 0px 10px 0px;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+}
+.recommends .recommend-item:hover{
+	background: rgb(248,248,248);
+
+}
+.recommends .recommend-item .recommend-item-left{
+	float: left;
+	width: 10%;
+	height: 100%;
+	margin: 0px auto 0 auto;
+}
+.recommends .recommend-item .recommend-item-right{
+	float: right;
+	width: 90%;
+	height: 100%;
+	margin: 0 auto;
+}
+.recommends .recommend-item .recommend-item-left img{
+	width: 40px;
+	height:40px;
+	border-radius: 50%;
+	margin: 10px;
+	margin-top: 10px;
+}
+.recommend-item-right .recommend-item-right-1{
+	margin-top: 3px;
+	margin-bottom: 12px;
+}
+.recommend-item-right .recommend-item-right-1 span{
+	color: #aaa;
+	font-size: 12px;
+
+}
+.recommend-item-right .recommend-item-right-1 span:nth-child(2){
+	float: right;
+}
+.recommend-item-right .recommend-item-right-2{
+	margin-bottom: 12px;
+	color: #666;
+	font-size: 15px;
+
+}
+.recommend-item-right .recommend-item-right-3{
+	float: right;
+	color: #aaa;
+	font-size: 13px;
+	margin-right: 8px;
+}
+.recommend-item-right .recommend-item-right-3:hover{
+	color: rgba(0, 130, 255, .8);
+	cursor: pointer;
+}
+.comment{
+	margin-top: 15px;
+	float: right;
+	background: #fff;
+	width: 30%;
+	padding: 15px 15px 25px 15px;
+}
+.comment-header{
+	margin-bottom: 10px;
+}
+.comment-header img{
+	width: 25px;
+	height: 25px;
+}
+.comment-header span{
+	display: inline-block;
+	margin-left: 7px;
+	font-weight: 600;
+}
+.comment-main{
+	margin-bottom: 15px;
+}
+.comment-main input{
+	width: 100%;
+	height: 200px;
+}
+.comment-bottom input{
+	width: 100%;
+	height: 30px;
+	outline: none;
+	cursor: pointer;
+	border: none;
+	background: rgb(65,170,191);
+	color: #fff;
+	font-size: 14px;
+	border-radius: 3px;
+}

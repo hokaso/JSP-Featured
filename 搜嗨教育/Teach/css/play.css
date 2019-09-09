@@ -1,0 +1,322 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /*overflow:scroll*/
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+.header-nav{
+    height: 38px;
+    background: #ddd;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.header-nav .logo{
+    float: left;
+    height: 38px;
+   
+    width: 300px;
+    /*background: black;*/
+    margin-left: 52px;
+
+}
+.header-nav .logo img{
+   margin-top: 7px;
+    height: 30px;
+}
+.header-nav .header-right{
+    float: right;
+    width: 500px;
+    margin-right: 60px;
+    /*position: relative;*/
+}
+.header-nav .header-right span{
+    height: 38px;
+    line-height: 38px;
+    font-size: 14px;
+    color: #222;
+    float: right;
+    margin: 0 15px;
+}
+
+.header .header-right span:hover{
+    color: rgb(40,172,228);
+    cursor: pointer;
+}
+.header .header-text{
+    height: 60px;
+    line-height: 60px;
+    color: #222;
+    /*text-align: center;*/
+    padding-left: 70px;
+    background: #eee;
+}
+.header .header-text .header-text-left{
+    float: left;
+}
+.header .header-text .header-text-left span{
+    font-size: 18px;
+    /*font-weight: bold;*/
+}
+.header .header-text .header-text-right{
+    float: right;
+    width: 300px;
+    margin-right: 60px;
+}
+.header .header-text .header-text-right .biji{
+    float: right;
+    height: 60px;
+    width: 60px;
+    /*margin-top: 18px;*/
+    color: #333;
+    font-size: 13px;
+    vertical-align: middle;
+    line-height: 60px;
+    margin-right: 10px;
+    padding: 0 5px;
+    /*background: #ddd;*/
+}
+.header .header-text .header-text-right .biji:hover{
+    color: rgb(11,160,182);
+    background: #fff;
+    border-radius: 5px;
+}
+.header .header-text .header-text-right .biji img{
+    height: 25px;
+    width: 25px;
+    /*margin-top: 10px;*/
+    /*position: relative;*/
+    /*top: 10px;*/
+    /*display: block;*/
+    margin-right: 5px;
+}
+.content{
+    height: 600px;
+    background: rgb(38,42,45);
+    padding-top:20px;
+    /*width: 1170px;*/
+    position: relative;
+    margin: 0 auto;
+
+}
+
+#main{
+    width: 900px;height: 506px;
+    position: relative;
+
+    margin: 0 auto;
+    
+    box-shadow: 10px 0px 8px black;
+}
+#video{
+    /*z-index:9999999999999;*/
+}
+#video-main{
+    /*width: 1000px;
+    height: 600px;*/
+    /*z-index: -3;*/
+}
+.bar{
+    z-index: 100;
+    /*position: absolute;*/
+    top: -128px;
+
+    position: relative;
+    width: 100%;height: 125px;
+    /*background-image: linear-gradient(0deg,rgb(5,5,5),rgb(20,20,20) 50%,rgb(28,28,28) 100%); */
+    /*border-radius: 10px;*/
+    opacity: 0;
+    /*display: none;*/
+    /*transition: opacity 1s;*/
+}
+
+.bar .play-img{
+    width: 65px;
+    height: 65px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    position: relative;
+}
+.play-img .play-img-2{
+    position: absolute;
+    top: 0px;
+}
+.play-img img{
+    width: 100%;
+    height: 100%;
+}
+.play-img .play-img-2:hover {
+    /*background: #ddd;*/
+    opacity: 0;
+}
+.bar-bottom-left{
+    float: left;
+    width: 170px;
+    height: 37px;
+    /*border-right: 1px solid #aaa;*/
+}
+.clear_fix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.bar-bottom-left .play-img-xiao{
+    display: inline-block;
+
+    width: 23px;
+    height: 23px;
+    margin-left: 15px;
+    margin-top: 7px;
+}
+#currentTime{
+    float: right;
+    display: inline-block;
+    width: 38px;
+    height: 28px;
+    padding-top: 8px;
+    padding-left: 20px;
+    color: #bbb;
+    font-size: 14px;
+    border-left: 1px solid #555;
+}
+#duration{
+    float:  right;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    padding-top: 8px;
+   
+    color: #bbb;
+    font-size: 14px;
+}
+.bar-bottom-right{
+    float: right;
+    height: 40px;
+    width: 170px;
+    /*position: relative;*/
+}
+.bar-bottom-right span{
+    display: inline-block;
+   margin-top: 7px;
+    float: left;
+    margin-right: 18px;
+    color: #aaa;
+    font-size: 13px;
+    height: 28px;
+}
+.bar-bottom-right span:nth-child(4){
+    /*margin-right: 0px;*/
+    margin-left: 6px;
+}
+#ssss{
+    position: absolute;
+    right: -1px;
+    /*display: none;*/
+}
+.bar-bottom-right span:first-child{
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding:0 4px;
+    height: 18px;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+.bar-bottom-right .voice{
+    
+}
+.bar-bottom-right span:nth-child(2){
+    position: relative;
+    text-align: center;
+    margin: 0;
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-left:8px;
+    /*margin-left: 10px;*/
+    margin-right: 6px;
+}
+.bar-bottom-right span img{
+    width: 18px;
+    height: 18px;
+}
+.bar:hover {
+    /*opacity: 1;*/
+}
+.bar-bottom{
+    border-top: 1px solid #333;
+    opacity: 0.8;
+    background-image: linear-gradient(0deg,rgb(5,5,5),rgb(20,20,20) 50%,rgb(28,28,28) 100%); 
+}
+
+#progress{
+    position: absolute;
+    height: 5px;
+    width: 10px;
+    /*background: red;*/
+    /*border-radius: 10px;*/
+    background-size: 10px 4px;
+    background-image: linear-gradient(0deg,rgb(34,195,178),rgb(38,210,192) 50%,rgb(42,226,206) 100%);
+    /*animation: keframe 1s linear infinite;*/
+}
+#probar{
+    background: rgb(117,117,117);
+    width: 900px;
+    height: 5px;
+    border: 1px solid black;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+}
+.bar-bottom {
+    width: 100%;
+    height: 41px;
+}
+#voice{
+    /*position: relative;*/
+}
+.bar-bottom-right .voice{
+    background: #222;
+    width: 30px;
+    height: 90px;
+    border: 1px solid #111;
+    opacity: 1;
+    position: absolute;
+    /*position: relative;*/
+    top: -92px;
+    left: 1px;
+    text-align: center;
+    display: none;
+    overflow: hidden;
+    /*display: none;*/
+}
+.bar-bottom-right .voice .voice-scroll{
+    width: 4px;
+    height: 74px;
+    background: #ccc;
+    /*text-align: center;*/
+    margin-left: 13px;
+    margin-top: 5px;
+}
+.bar .bar-bottom-right .voice img{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    bottom: 3px;
+    right: 7.5px;
+}
+#lists-play-img{
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    margin-right: 3px;
+}
+@keyframes keframe{
+    0%{
+        background-position:0 0;
+
+    }
+    100%{
+        background-position:60px 30px;
+    }
+}

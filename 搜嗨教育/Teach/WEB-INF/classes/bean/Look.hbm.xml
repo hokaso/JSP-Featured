@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-24 10:49:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.Look" table="look">
+    	<composite-id>
+    		<key-property name="lno" column="lno" type="java.lang.String"></key-property>
+    		<key-property name="sno" column="sno" type="java.lang.String"></key-property>
+    		<key-property name="fno" column="fno" type="java.lang.String"></key-property>
+    	</composite-id>
+        
+        <property name="ltime" type="java.sql.Timestamp">
+            <column name="ltime" />
+        </property>
+    </class>
+</hibernate-mapping>

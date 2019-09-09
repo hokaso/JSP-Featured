@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-24 10:49:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.Fileone" table="fileone">
+    
+        <id name="fno" type="java.lang.String">
+            <column name="fno" />
+            <generator class="assigned" />
+        </id>
+        <property name="cno" type="java.lang.String">
+            <column name="cno" />
+        </property>
+        <property name="fname" type="java.lang.String">
+            <column name="fname" />
+        </property>
+        
+        <property name="ftime" type="java.sql.Timestamp">
+            <column name="ftime" />
+        </property>
+        <property name="fupload" type="java.lang.String">
+            <column name="fupload" />
+        </property>
+        <property name="fcounts" type="int">
+            <column name="fcounts" />
+        </property>
+        <property name="fprice" type="int">
+            <column name="fprice" />
+        </property>
+    </class>
+</hibernate-mapping>

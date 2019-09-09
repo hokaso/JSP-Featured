@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name = "login" namespace = "/login" extends = "struts-default">
+		<action name = "login" class = "action.Login" method = "UserLogin">
+			
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name = "checkTeacher" class = "action.CheckTeacher" method = "CheckTeacher">
+			
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name = "checkTeacherSuccess" class = "action.CheckTeacher" method = "CheckTeacherSuccess">
+			
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+	</package>
+</struts>

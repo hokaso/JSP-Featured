@@ -1,0 +1,119 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.login-header{
+	height: 100px;
+	background:  #00ccff;
+	line-height: 100px;
+}
+.login-header .h1{
+	margin-left: 200px;
+	color: #fff;
+	width: 150px;
+	font-size: 40px;
+	font-weight: bold;
+}
+.login-header .mingyan{
+	color: #fff;
+	font-size: 18px;
+	margin-left: 25px;
+}
+#loopDiv{
+            width: 53%;
+            height: 65%;
+            margin: 0 auto;
+            position: fixed;
+            left: 240px;
+            /*top: 150px;*/
+        }
+        
+        #list{
+            list-style: none;
+        
+            position: absolute;
+            bottom: 10px;
+            left: 330px;
+        }
+        #list li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background: #aaa;
+            margin-right: 10px;
+        }
+        .chooseBut{
+            width: 100px;
+            height: 110px;
+            background-color: rgba(0,0,0,0.2);
+            color: #fff;
+            font-size: 30px;
+            line-height: 110px;
+            text-align: center;
+            display: none;
+        }
+        #left{
+            position: absolute;
+            left: 0px;
+            top: 200px;
+        }
+        #right{
+            position: absolute;
+            right: 0px;
+            top: 200px;
+        }
+#style3{
+	background-color: #87CEFA;
+}
+#style1{
+	position: fixed;
+	right: 100px;
+	top: 100px;
+	border-radius: 10px;
+}
+a{
+	font-size: 25px;
+}
+input.text{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+a.tital1{
+	text-decoration: none;
+	color: #00BFFF;
+	width: 30px;
+	height: 20px;
+	
+}
+a:hover{ 
+ 	color: red;
+} 
+
+/*#but1:hover{
+	transform: scale(1.2);
+}
+#but2:hover{
+	transform: scale(1.2);
+}*/
+#loopDiv{
+
+	background-color: #F5F5F5;
+}
+#img1{
+	/*position: fixed;
+	top: 180px;
+	left: 120px;*/
+	 width: 100%;
+     height: 100%;
+}
+}
+#pic{
+	width: 100%;
+     height: 100%;
+	display: inline-block;
+}

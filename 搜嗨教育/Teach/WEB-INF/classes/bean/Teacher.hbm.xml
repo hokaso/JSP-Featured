@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-24 10:49:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.Teacher" table="teacher">
+        <id name="tno" type="java.lang.String">
+            <column name="tno" />
+            <generator class="assigned" />
+        </id>
+        <property name="tname" type="java.lang.String">
+            <column name="tname" />
+        </property>
+        <property name="tsex" type="java.lang.String">
+            <column name="tsex" />
+        </property>
+        <property name="tpassword" type="java.lang.String">
+            <column name="tpassword" />
+        </property>
+        <property name="tphone" type="java.lang.String">
+            <column name="tphone" />
+        </property>
+        <property name="tregisterTime" type="java.sql.Timestamp">
+            <column name="tregisterTime" />
+        </property>
+        <property name="temail" type="java.lang.String">
+            <column name="temail" />
+        </property>
+        <property name="flag" type="int">
+            <column name="flag" />
+        </property>
+    </class>
+</hibernate-mapping>

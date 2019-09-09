@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ssm.mapper.mallMapper.GoodsCommentMapper">
+
+	<resultMap type="ssm.pojo.Goods.GoodsCommentEntity" id="findComment">
+		<id column="goods_comment_id" property="goods_comment_id"/>
+		<result column="goods_comment_content" property="goods_comment_content"/>
+		<result column="goods_comment_time" property="goods_comment_time"/>
+		<result column="goods_degree" property="goods_degree"/>
+		<result column="headPicPath" property="headPicPath"/>
+		<result column="goods_id" property="goods_id"/>
+		
+		<association property="customer" javaType="ssm.pojo.Mine.Customer">
+			<id column="u_is" property="u_id"/>
+			<result column="name" property="name"/>
+			<!-- <result column="headPicPath" property="headPicPath"/> -->
+		</association>
+	</resultMap>
+
+	<select id="loadGoodsComment" parameterType="String" resultMap="findComment">
+		SELECT g.*, c.u_id, c.headPicPath, c.name FROM goods_comment g, customer c
+		WHERE g.u_id = c.u_id AND goods_id = #{goods_id}
+		ORDER BY g.goods_comment_time DESC 
+	</select>
+	
+	<select id="loadGoodsCommentByDegree" parameterType="ssm.pojo.Goods.GoodsCommentEntity" resultMap="findComment">
+		SELECT g.*, c.u_id, c.headPicPath, c.name FROM goods_comment g, customer c
+		WHERE goods_degree = #{goods_degree} AND goods_id = #{goods_id}
+			AND g.u_id = c.u_id
+			ORDER BY g.goods_comment_time DESC 
+	</select>
+	
+	<select id="loadGoodsCommentImage" parameterType="String" resultType="ssm.pojo.Goods.GoodsCommentImageEntity">
+		SELECT * FROM goods_intr_comm_img 
+		WHERE goods_comment_id = #{goods_comment_id} AND img_type = 2 
+		ORDER BY img_order
+	</select>
+
+</mapper>

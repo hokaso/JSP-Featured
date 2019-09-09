@@ -1,0 +1,115 @@
+.tp-caption.large_bold_black, .large_bold_black {
+    font-size: 58px;
+    line-height: 60px;
+    font-weight: 800;
+    font-family: "Open Sans";
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: transparent;
+    border-width: 0px;
+    border-color: rgb(255, 214, 88);
+    border-style: none
+}
+
+.tp-caption.medium_text, .medium_text {
+    position: absolute;
+    color: #fff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    font-family: Arial;
+    margin: 0px;
+    border-width: 0px;
+    border-style: none;
+    white-space: nowrap
+}
+
+.tp-caption.smalltext, .smalltext {
+    color: #ffffff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Arial;
+    margin: 0px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    background-color: transparent;
+    text-decoration: none;
+    border-width: 0px;
+    border-color: rgb(255, 255, 255);
+    border-style: none
+}
+
+.tp-caption.small_text, .small_text {
+    position: absolute;
+    color: #fff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Arial;
+    margin: 0px;
+    border-width: 0px;
+    border-style: none;
+    white-space: nowrap
+}
+
+.large_bold_black, .large_bold_black {
+    font-size: 58px;
+    line-height: 60px;
+    font-weight: 800;
+    font-family: "Open Sans";
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: transparent;
+    border-width: 0px;
+    border-color: rgb(255, 214, 88);
+    border-style: none
+}
+
+.medium_text, .medium_text {
+    position: absolute;
+    color: #fff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    font-family: Arial;
+    margin: 0px;
+    border-width: 0px;
+    border-style: none;
+    white-space: nowrap
+}
+
+.smalltext, .smalltext {
+    color: #ffffff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Arial;
+    margin: 0px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    background-color: transparent;
+    text-decoration: none;
+    border-width: 0px;
+    border-color: rgb(255, 255, 255);
+    border-style: none
+}
+
+.small_text, .small_text {
+    position: absolute;
+    color: #fff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Arial;
+    margin: 0px;
+    border-width: 0px;
+    border-style: none;
+    white-space: nowrap
+}

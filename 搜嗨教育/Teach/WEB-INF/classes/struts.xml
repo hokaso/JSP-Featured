@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    <!-- 
+    <!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"> -->
+<struts>
+	<constant name="struts.multipart.maxSize" value="104857600"></constant>
+	<include file="conf/struts-login.xml"></include>
+	<include file="conf/struts-register.xml"></include>
+	<include file="conf/struts-home.xml"></include>
+	<include file="conf/struts-play.xml"></include>
+	<include file="conf/struts-check.xml"></include>
+	<include file="conf/struts-paycoin"></include>
+	<include file="conf/struts-admin.xml"></include>
+</struts>

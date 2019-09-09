@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ssm.mapper.mallMapper.GoodsMapper">
+	<resultMap type="ssm.pojo.Goods.GoodsEntity" id="findGoods">
+		<id column="goods_id" property="goods_id"/>
+		<result column="goods_name" property="goods_name"/>
+		<result column="goods_state" property="goods_state"/>
+		<result column="goods_attrs" property="goods_attrs"/>
+		<result column="goods_coverPic" property="goods_coverPic"/>
+		<result column="goods_category" property="goods_category"/>
+		<result column="goods_describe" property="goods_describe"/>
+		<collection property="goodsSpecs" ofType="ssm.pojo.Goods.GoodsSpecs" >
+			<id column="specs_id" property="specs_id"/>
+			<result column="specs_attrs" property="specs_attrs"/>
+			<result column="specs_stock" property="specs_stock"/>
+			<result column="specs_price" property="specs_price"/>
+			<result column="specs_img" property="specs_img"/>
+		</collection>
+	</resultMap>
+	
+	<!-- 通过搜索框查找商品 -->
+	<select id="findGoodsBySearchBar" parameterType="String" resultType="ssm.pojo.Goods.GoodsEntity">
+		SELECT * FROM mall_goods 
+		WHERE 
+			goods_state = 1
+			<if test="value != null">
+			AND(
+			goods_name LIKE CONCAT ('%', #{value}, '%')
+			OR
+			goods_describe LIKE CONCAT ('%', #{value}, '%')
+			)
+			</if>
+	</select>
+	
+	<!-- 根据id查找规格 -->
+	<select id="findSpecsById" parameterType="String" resultType="ssm.pojo.Goods.GoodsSpecs">
+		SELECT * FROM goods_specs WHERE specs_id = #{specs_id}
+	</select>
+	
+	<!-- 根据商品id查找商品 -->
+	<select id="findGoodsById" parameterType="String" resultType="ssm.pojo.Goods.GoodsEntity">
+		SELECT * FROM mall_goods WHERE goods_state = 1 AND goods_id = #{goods_id}
+	</select>
+	
+	<!-- 查找对应的商品规格 -->
+	<select id="getGodosSpecs" parameterType="String" resultMap="findGoods">
+		SELECT g.*, gs.* FROM mall_goods g LEFT JOIN goods_specs gs
+		ON  gs.goods_id = g.goods_id WHERE g.goods_id = #{value }
+	</select>
+	
+	<!-- 查找指定规格 -->
+	<select id="findsSpecsById" parameterType="String" resultType="ssm.pojo.Goods.GoodsSpecs">
+		SELECT * FROM goods_specs WHERE specs_id = #{specs_id}
+	</select>
+	
+	<!-- 根据分类查找商品 -->
+	<select id="findGoodsByCategory" parameterType="int" resultType="ssm.pojo.Goods.GoodsEntity">
+		SELECT * FROM mall_goods WHERE goods_state = 1 AND goods_category = #{value}
+	</select>
+	
+	<!-- 查找商品介绍的图片 -->
+	<select id="getTroduceImage" parameterType="String" resultType="ssm.pojo.Goods.GoodsIntroduceImage">
+		SELECT img_order, img_path FROM goods_intr_comm_img WHERE  goods_id = #{goods_id} AND img_type = 1 ORDER BY img_order
+	</select>
+	
+	<!-- 更新规格数量 -->
+	<update id="updateSpecsStock" parameterType="ssm.pojo.Goods.GoodsSpecs">
+		UPDATE goods_specs SET specs_stock = #{specs_stock} WHERE specs_id = #{specs_id}
+	</update>
+	
+	
+	
+	<!-- 这里开始是后台 -->
+	<select id="findAllGoods" resultMap="findGoods">
+		SELECT * FROM
+		mall_goods LEFT JOIN goods_specs ON 
+		mall_goods.goods_id =goods_specs.goods_id  
+		order by specs_price
+	</select>
+	<delete id="deleteGoods" parameterType="java.lang.String">
+		delete from mall_goods where goods_id = #{goods_id}
+	</delete>
+	<select id="findAllCategory" resultType="java.util.HashMap">
+		SELECT 
+ 			 *
+		FROM
+ 		 `manual_app`.`goods_category` 
+	</select>
+	<insert id="addGoods" parameterType="ssm.pojo.Goods.GoodsEntity">
+	INSERT INTO `manual_app`.`mall_goods` (
+  `goods_id`,
+  `goods_name`,
+  `goods_price`,
+  `goods_state`,
+  `goods_coverPic`,
+  `goods_category`,
+  `goods_describe`,
+  `goods_sale_price`,
+  `goods_perchase_price`,
+  `goods_sales_volume`
+) 
+VALUES
+  (
+    #{goods_id},
+    #{goods_name},
+    #{goods_price},
+    #{goods_state},
+    #{goods_coverPic},
+    #{goods_category},
+    #{goods_describe},
+    #{goods_sale_price},
+    #{goods_perchase_price},
+    #{goods_sales_volume}
+  ) ;
+	</insert>
+	<insert id="saveGoodsSpecs" parameterType="ssm.pojo.Goods.GoodsSpecs">
+		INSERT INTO `manual_app`.`goods_specs` (
+  `specs_id`,
+  `goods_id`,
+  `specs_attrs`,
+  `specs_stock`,
+  `specs_price`,
+  `specs_img`,
+  `specs_create_time`,
+  `specs_update_time`,
+  `specs_perchase_price`
+) 
+VALUES
+  (
+    #{specs_id},
+    #{goods_id},
+    #{specs_attrs},
+    #{specs_stock},
+    #{specs_price},
+    #{specs_img},
+    #{specs_create_time},
+    #{specs_update_time},
+    #{specs_perchase_price}
+  ) ;
+	</insert>
+	
+	<update id="updateGoods" parameterType="ssm.pojo.Goods.GoodsEntity" >
+		UPDATE 
+	  `manual_app`.`mall_goods` 
+	SET
+	  `goods_name` = #{goods_name},
+	  `goods_price` = #{goods_price},
+	  `goods_state` = #{goods_state},
+	  `goods_coverPic` = #{goods_coverPic},
+	  `goods_category` = #{goods_category},
+	  `goods_describe` = #{goods_describe} 
+	WHERE `goods_id` = #{goods_id} ;
+	</update>
+	<update id="updateSpecs" parameterType="ssm.pojo.Goods.GoodsSpecs">
+		UPDATE 
+		  `manual_app`.`goods_specs` 
+		SET	 
+		  `goods_id` = #{goods_id},
+		  `specs_attrs` = #{specs_attrs},
+		  `specs_stock` = #{specs_stock},
+		  `specs_price` = #{specs_price},
+		  `specs_img` = #{specs_img},
+		  `specs_create_time` = #{specs_create_time},
+		  `specs_update_time` = #{specs_update_time},
+		  `specs_perchase_price` = #{specs_perchase_price} 
+		WHERE `specs_id` = #{specs_id} ;
+	</update>
+</mapper>

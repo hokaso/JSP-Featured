@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.mapper.mallMapper.OrderMapper">
+
+	<!-- 生成订单 -->
+	<insert id="creatOrder" parameterType="ssm.pojo.Goods.OrderEntity">
+		INSERT INTO mall_orders(
+			order_id, 
+			u_id, 
+			order_create_time, 
+			order_totalPrice, 
+			order_consigneeAddress, 
+			order_message, 
+			order_consigneeName, 
+			order_consigneePhone,
+			order_state,
+			order_delete
+			)
+		VALUES(
+			#{order_id},
+			#{customer.u_id},
+			#{order_create_time},
+			#{order_totalPrice},
+			#{order_consigneeAddress},
+			#{order_message},
+			#{order_consigneeName},
+			#{order_consigneePhone},
+			#{order_state},
+			#{order_delete})
+	</insert>
+	
+	<!-- 插入订单条目 -->
+	<insert id="insertOrderItems" parameterType="ssm.pojo.Goods.OrderItemEntity">
+		INSERT INTO order_items(
+			order_item_id, 
+			order_item_count, 
+			item_price, 
+			goods_id, 
+			specs_id, 
+			order_id) 
+		VALUES(
+			#{order_item_id}, 
+			#{order_item_count}, 
+			#{item_price}, 
+			#{goods.goods_id}, 
+			#{specs.specs_id}, 
+			#{order.order_id})
+	</insert>
+	
+	<!-- 查找用户订单 -->
+	<select id="findOrdersByUid" parameterType="String" resultType="ssm.pojo.Goods.OrderEntity">
+		SELECT * FROM mall_orders 
+		WHERE u_id = #{customer.u_id} AND order_delete = 1 
+		ORDER BY  
+		order_create_time, order_paytime DESC;
+	</select>
+	
+	<!-- 修改订单状态 -->
+	<update id="updateOrderState" parameterType="ssm.pojo.Goods.OrderEntity">
+		UPDATE mall_orders SET order_state = #{order_state}
+		<if test="order_paytime != null">
+			, order_paytime=#{order_paytime} 
+		</if>
+		WHERE order_id = #{order_id}
+	</update>
+	
+	<!-- “删除订单” -->
+	<update id="deleteOrder" parameterType="ssm.pojo.Goods.OrderEntity">
+		UPDATE mall_orders SET order_delete=#{order_delete} 
+		WHERE order_id = #{order_id}
+	</update>
+</mapper>

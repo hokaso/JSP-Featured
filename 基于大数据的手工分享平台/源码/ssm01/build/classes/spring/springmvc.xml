@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 配置处理器 -->
+<!-- <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/> -->
+
+<!-- 配置handler -->
+<!-- 
+<bean id="handler1" name="/queryMedicine.action" class="ssm.controller.ItemsController"/>
+<bean id="handler2" class="ssm.controller.HttpController"></bean>
+ -->
+<!-- 处理器映射器 -->
+<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" /> -->
+<!-- 简单url映射器 -->
+<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<property name="mappings">
+		<props>
+			<prop key="/queryMedicine1.action">handler1</prop>
+			<prop key="/queryMedicine2.action">handler1</prop>
+			<prop key="/queryMedicine3.action">handler2</prop>
+		</props>
+	</property>
+</bean> -->
+
+<!-- 配置视图解析器 -->
+<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/> -->
+
+<!-- 注解映射器与适配器 -->
+<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+<!-- 定义文件上传解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设定默认编码 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 设定文件上传的最大值5MB，5*1024*1024 -->
+		<property name="maxUploadSize" value="5242880"></property>
+	</bean>
+<!-- 配置数据库相关的参数 -->
+<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+	<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ele_equip_system"></property>
+	<property name="user" value="root"></property>
+	<property name="password" value="root"></property>
+</bean> -->
+	
+
+<mvc:annotation-driven>
+	<!-- <mvc:message-converters register-defaults="true">
+      配置Fastjson支持
+      <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+          <list>
+            <value>text/html;charset=UTF-8</value>
+            <value>application/json</value>
+          </list>
+        </property>
+        <property name="features">
+          <list>
+            <value>WriteMapNullValue</value>
+            <value>QuoteFieldNames</value>
+          </list>
+        </property>
+      </bean>
+    </mvc:message-converters>-->
+  <!--    <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+   </mvc:message-converters> -->
+</mvc:annotation-driven> 
+<context:component-scan base-package="ssm"></context:component-scan>
+
+
+
+</beans>

@@ -1,0 +1,69 @@
+.tp-caption a {
+    color: #ff7302;
+    text-shadow: none;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+}
+
+.tp-caption a:hover {
+    color: #ffa902;
+}
+
+.tp-caption a {
+    color: #ff7302;
+    text-shadow: none;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+}
+
+.tp-caption a:hover {
+    color: #ffa902;
+}
+
+.tp-caption.large_bold_black, .large_bold_black {
+    font-size: 25px;
+    line-height: 40px;
+    font-weight: 800;
+    font-family: "Open Sans";
+    color: #f5dd25;
+    text-decoration: none;
+    background-color: transparent;
+    border-width: 0px;
+    border-color: rgb(255, 214, 88);
+    border-style: none;
+}
+
+.tp-caption.small_text, .small_text {
+    position: absolute;
+    color: #fff;
+    text-shadow: none;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 24px;
+    font-family: Open Sans, sans-serif;
+    margin: 0px;
+    letter-spacing: 0;
+    border-width: 0px;
+    border-style: none;
+    white-space: nowrap;
+}
+
+.tp-caption.smalltext, .smalltext {
+    font-size: 35px;
+    line-height: 40px;
+    font-weight: 700;
+    font-family: Poppins, sans-serif;
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    text-shadow: none;
+    margin: 0px;
+    white-space: nowrap;
+    border-width: 0px;
+    border-color: none;
+    border-style: none;
+}

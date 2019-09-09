@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+	<constant value="action" name="struts.action.extension" />
+	<constant name="struts.multipart.parser" value="Pet.utils.MyMultiPartRequest" />
+     <constant name="struts.multipart.handler" value="Pet.utils.MyMultiPartRequest" />
+     <constant name="struts.multipart.maxSize" value="2000000000"/>
+	<package name="Pet" extends="struts-default">
+		<action name="checkRequest_*" method="check"
+			class="Pet.tool.CheckcodeAction">
+		</action>
+		<action name="Member_*" method="{1}"
+			class="Pet.action.MemberAction">
+			<result name="success">index.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">interval.jsp</result>
+			<result name="login">User/interval2.jsp</result>
+			<result name="updatePwdSuccess">user.jsp</result>
+			<interceptor-ref name="fileUpload">
+                <!--设置此action最大上传10M-->
+                <param name="maximumSize">90000000</param>
+            </interceptor-ref>
+            <interceptor-ref name="completeStack"/>
+		</action>
+		<action name="Manager_*" method="{1}"
+			class="Pet.action.ManagerAction">
+			<result name="success">User/news.jsp</result>
+			<result name="SUCCESS1">User/vedio.jsp</result>
+			<result name="SUCCESS2">User/findVedio.jsp</result>
+			<result name="error">User/error3.jsp</result>
+			<result name="login">User/interval2.jsp</result>
+			<result name="newsList">User/news3.jsp</result>
+			<result name="vedioList">User/vedio2.jsp</result>
+			<result name="vedio1List">User/vedio3.jsp</result>
+			<result name="login1">/Manager/login.jsp</result>
+            <result name="loginSuccess">/Manager/index.jsp</result>
+            <result name="updatePwdSuccess" type="redirect">Manager/adminpass.jsp</result>
+		</action>
+		<action name="comment_*" class="Pet.action.CommentAction" method="{1}">
+            <result name="findCommentSuccess">comment.jsp</result>
+            <result name="deleteCommentSuccess" type="chain">comment_findComment</result>
+            <result name="deleteMoreCommentSuccess" type="chain">comment_findComment</result>
+            <allowed-methods>findComment,deleteComment,deleteMoreComment</allowed-methods>
+        </action>
+        <action name="comment2_*" class="Pet.action.CommentAction2" method="{1}">
+            <result name="findCommentSuccess">comment2.jsp</result>
+            <result name="deleteCommentSuccess" type="chain">comment2_findComment</result>
+            <result name="deleteMoreCommentSuccess" type="chain">comment2_findComment</result>
+            <allowed-methods>findComment,deleteComment,deleteMoreComment</allowed-methods>
+        </action>
+        <action name="headnews_*" class="Pet.action.HeadNewsAction" method="{1}">
+            <result name="findHeadNewsHeadNews">headnews.jsp</result>
+            <result name="deleteHeadNewsSuccess" type="chain">headnews_findHeadNews</result>
+            <result name="addOrUpdateHeadNewsSuccess" type="chain">headnews_findHeadNews</result>
+            <result name="input" type="chain">headnews_findHeadNews.action</result>
+        </action>
+         <action name="headvedio_*" class="Pet.action.HeadVedioAction" method="{1}">
+            <result name="findHeadVedioHeadVedio">headvedio.jsp</result>
+            <result name="deleteHeadVedioSuccess" type="chain">headvedio_findHeadVedio</result>
+            <result name="addOrUpdateHeadVedioSuccess" type="chain">headvedio_findHeadVedio</result>
+            <result name="input" type="chain">headvedio_findHeadVedio.action</result>
+        </action>
+        <action name="siteinfo_*" class="Pet.action.SiteInfoAction" method="{1}">
+            <result name="findInfoSuccess">siteinfo.jsp</result>
+            <result name="saveInfoSuccess" type="chain">siteinfo_findInfo</result>
+            <allowed-methods>saveInfo,findInfo</allowed-methods>
+        </action>
+        <!-- 新闻管理 -->
+        <action name="news_*" class="Pet.action.NewsAction" method="{1}">
+            <result name="input" type="redirect">addnews.jsp</result>
+            <result name="addNewsSuccess">addnews.jsp</result>
+            <result name="deleteNewsSuccess" type="chain">news_findNewsByCondition</result>
+            <result name="findNewsByConditionSuccess">newslist.jsp</result>
+            <result name="deleteMoreNewsSuccess" type="chain">news_findNewsByCondition</result>
+            <interceptor-ref name="fileUpload">
+                <!--设置此action最大上传10M-->
+                <param name="maximumSize">90000000</param>
+            </interceptor-ref>
+            <interceptor-ref name="completeStack"/>
+            <allowed-methods>addNews,deleteNews,deleteMoreNews,findNewsByCondition</allowed-methods>
+        </action>
+        <action name="vedio_*" class="Pet.action.VedioAction" method="{1}">
+            <result name="input" type="redirect">Manager/addvedio.jsp</result>
+            <result name="addVedioSuccess">addvedio.jsp</result>
+            <result name="deleteVedioSuccess" type="chain">vedio_findVedioByCondition</result>
+            <result name="findVedioByConditionSuccess">vediolist.jsp</result>
+            <result name="deleteMoreVedioSuccess" type="chain">vedio_findVedioByCondition</result>
+            <interceptor-ref name="fileUpload">
+                <!--设置此action最大上传10M-->
+                <param name="maximumSize">90000000</param>
+            </interceptor-ref>
+            <interceptor-ref name="completeStack"/>
+            <allowed-methods>addVedio,deleteVedio,deleteMoreVedio,findVedioByCondition</allowed-methods>
+        </action>
+        
+        <action name="countinfo_*" class="Pet.action.CountInfoAction" method="{1}">
+            <result name="countInfoSuccess" type="redirect">Manager/countinfo.jsp</result>
+            <allowed-methods>countInfo</allowed-methods>
+        </action>
+        
+          <action name="user_*" class="Pet.action.UserAction" method="{1}">
+            <result name="login">{1}.jsp</result>
+            <result name="loginSuccess">/index.jsp</result>
+            <result name="updatePwdSuccess" type="redirect">adminpass.jsp</result>
+            <allowed-methods>login,updatePassword</allowed-methods>
+        </action>
+        
+            <action name="uploadResourceFile" class="Pet.action.UploadResourceFile" method="uploadResourceFile">
+            </action>
+            
+            <action name="getFileUploadProgress" class="Pet.action.GetFileUploadProgress" method="getFileUploadProgress">
+        </action>
+         <action name="vedio1_*" class="Pet.action.DownloadStreamAction" method="{1}">
+            <result name="deleteDownloadSuccess" type="chain">vedio1_findVedio1ByCondition</result>
+            <result name="findDownloadByConditionSuccess">downloadlist.jsp</result>
+            <result name="deleteMoreDownloadSuccess" type="chain">vedio1_findVedio1ByCondition</result>
+        </action>
+        <action name="resource_*" class="Pet.action.ResourceAction" method="{1}">
+            <result type="redirect" name="deleteResourceSuccess">resource_findResourceByCondition.action?idea=${idea1}</result>
+            <result name="findResourceByConditionSuccess">resourcelist.jsp</result>
+             <result type="redirect" name="deleteMoreResourceSuccess">resource_findResourceByCondition.action?idea=${idea1}</result>
+        </action> 
+	</package>
+	
+	<package name="Pet1" extends="struts-default,json-default">
+	<!-- 主页和内容页新闻 -->
+        <action name="index_*" class="Pet.action.IndexAction" method="{1}">
+            <result type="json">
+                <param name="root">root</param>
+            </result>
+            <allowed-methods>
+findThisNews,findHeadNews,findHotNews,findSocietyNews,findInteNews,findTechNews,findMiliNews,addReview,findReview,findReview1,findThisVedio
+            </allowed-methods>
+        </action>
+        <!-- 页脚 -->
+        <action name="footer_*" class="Pet.action.FooterAction" method="{1}">
+            <result type="json">
+                <param name="root">root</param>
+            </result>
+            <allowed-methods>findFooter</allowed-methods>
+        </action>
+        <!-- 登录和注册 -->
+        <action name="loginReg_*" class="Pet.action.LoginRegAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">root</param>
+            </result>
+            <allowed-methods>login,register</allowed-methods>
+        </action>
+         
+        <!-- 获取并评论 -->
+        <action name="cmt_*" class="Pet.action.ReviewAction"  method="{1}">
+            <result name="success" type="json">
+                <param name="root">root</param>
+            </result>
+            <allowed-methods>findReview,findReview1</allowed-methods>
+        </action>
+        <action name="subcmt_*" class="Pet.action.SubmitCmtAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">root</param>
+            </result>
+            <allowed-methods>addReview,addReview1</allowed-methods>
+        </action>
+        <action name="getProgress" class="Pet.action.ProgressAction"  method="{1}">
+            <result name="success" type="json">
+                <param name="root">jsonData</param><!-- action中的要返回的属性 -->
+            </result>
+        </action>
+	</package> 
+	 <package name="download" extends="struts-default">
+            <action name="download" class="Pet.action.DownloadStreamAction" method="execute">
+            <!-- 以stream二进制流的方式打开 -->
+            <result name="success" type="stream">
+                <!-- 指明文件的下载类型 -->
+                <param name="contentType">video/mpeg4</param>    
+                <!-- 指明如果取得需要下载文件的InputStream输入流 -->
+                <param name="inputName">vedioStream</param>    
+                <!-- 指明让浏览器以下载框的方式打开 -->
+                <param name="contentDisposition">attachment;filename=${fileName}</param> 
+                <!-- 指明下载文件时的字符数组byte[]大小 -->
+                <param name="bufferSize">1024</param>
+            </result>
+            </action>
+        </package>
+</struts>  

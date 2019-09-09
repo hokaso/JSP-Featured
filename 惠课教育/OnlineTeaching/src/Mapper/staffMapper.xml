@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Mapper.staffMapper">
+
+<select id="check_college_statue" resultType="college">
+select * from college where college_statue=0 or college_statue=2
+</select>
+
+<update id="change_college_statue" >
+update college set college_statue=#{1} where college_id=#{0}
+</update>
+</mapper>

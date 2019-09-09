@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name = "check" namespace = "/check" extends = "struts-default">
+		<action name = "checkLook" class = "action.CheckLook" method = "CheckLook">
+			
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name = "checkCoin" class = "action.CheckLook" method = "CheckCoin">
+			
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name = "pay" class = "action.Pay" method = "PPay">
+			<result>../alipay.trade.page.pay.jsp</result>
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name = "paycoin" class = "action.Pay" method = "PayCoin">
+			<result type="redirectAction">
+				<param name="namespace">/homepage</param>
+				<param name="actionName">homepage</param>
+			</result>
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+	</package>
+</struts>

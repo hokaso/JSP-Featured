@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ssm.mapper.mallMapper.CartMapper">
+	
+	<resultMap type="ssm.pojo.Goods.CartEntity" id="findCartByUid">
+		<id column="cart_id" property="cart_id"/>
+		<result column="u_id" property="u_id"/>
+		<collection property="cartItemList" ofType="ssm.pojo.Goods.CartItemEntity">
+			<id column="cart_item_id" property="cart_item_id" />
+			<result column="cart_item_count" property="cart_item_count" />
+			<association property="goods" column="goods_id" javaType="ssm.pojo.Goods.GoodsEntity">
+				<id column="goods_id" property="goods_id" />
+				<result column="goods_name" property="goods_name" />
+				<result column="goods_describe" property="goods_describe" />
+				<result column="goods_state" property="goods_state" />
+				<result column="goods_coverPic" property="goods_coverPic" />
+				<result column="goods_price" property="goods_price" />
+			</association>
+			<association property="specs" column="specs_id" javaType="ssm.pojo.Goods.GoodsSpecs">
+				<id column="specs_id" property="specs_id"/>
+				<result column="specs_attrs" property="specs_attrs"/>
+				<result column="specs_stock" property="specs_stock"/>
+				<result column="specs_price" property="specs_price"/>
+				<result column="specs_img" property="specs_img"/>
+			</association>
+		</collection>
+	</resultMap>
+	
+	<resultMap type="ssm.pojo.Goods.CartItemEntity" id="findCartItem">
+		<id column="cart_item_id" property="cart_item_id" />
+		<result column="cart_item_count" property="cart_item_count" />
+		<association property="goods" column="goods_id" javaType="ssm.pojo.Goods.GoodsEntity">
+			<id column="goods_id" property="goods_id" />
+			<result column="goods_state" property="goods_state"/>
+			<result column="goods_coverPic" property="goods_coverPic"/>
+			<result column="goods_price" property="goods_price"/>
+			<result column="goods_name" property="goods_name"/>
+			<result column="goods_describe" property="goods_describe"/>
+		</association>
+		<association property="specs" column="specs_id" javaType="ssm.pojo.Goods.GoodsSpecs">
+			<id column="specs_id" property="specs_id"/>
+			<result column="specs_stock" property="specs_stock"/>
+		</association>
+	</resultMap>
+
+	<!-- 删除指定条目 -->	
+	<delete id="deleteCartItem" parameterType="String">
+		DELETE FROM cart_items 
+		WHERE cart_item_id = #{cart_item_id}
+	</delete>
+	
+	<!-- 根据id查找条目 -->
+	<select id="findCartItemById" parameterType="String" resultMap="findCartItem">
+		SELECT it.cart_item_id, g.*,  sp.* 
+		FROM cart_items it, mall_goods g, goods_specs sp
+		WHERE g.goods_id = it.goods_id AND sp.specs_id = it.specs_id AND it.cart_item_id = #{cart_item_id}
+	</select>
+	
+	<!-- 更改条目数量 -->
+	<update id="updateCartItemCount" parameterType="ssm.pojo.Goods.CartItemEntity">
+		UPDATE cart_items SET cart_item_count = #{cart_item_count}
+		WHERE cart_item_id = #{cart_item_id}
+	</update>
+	
+	<!-- 往购物车中添加一个商品 -->
+	<insert id="addItem" parameterType="ssm.pojo.Goods.CartItemEntity">
+		INSERT INTO cart_items(cart_item_id, cart_item_count, goods_id, cart_id, specs_id)
+		VALUES(#{cart_item_id}, #{cart_item_count}, #{goods_id}, #{cart_id}, #{specs_id})
+	</insert>
+	
+	<!-- 更改购物车中条目数量 -->
+	<update id="updateItemCount" parameterType="ssm.pojo.Goods.CartItemEntity">
+		UPDATE cart_items SET cart_item_count = #{cart_item_count} WHERE cart_item_id = #{cart_item_id}
+	</update>
+	
+	<!-- 查找购物车 -->
+	<select id="findCartByUid" parameterType="String" resultMap="findCartByUid">
+		SELECT c.*, it.*, s.*, 
+			g.goods_name, g.goods_name, g.goods_describe, g.goods_state, g.goods_coverPic 
+		FROM mall_cart c, 
+			cart_items it, 
+			mall_goods g, 
+			goods_specs s
+		WHERE c.cart_id = it.cart_id 
+			AND it.goods_id = g.goods_id 
+			AND it.specs_id = s.specs_id 
+			AND g.goods_id = s.goods_id
+			AND c.u_id = #{u_id}
+	</select>
+	
+	<!-- 创建购物车 -->
+	<insert id="createCart" parameterType="ssm.pojo.Goods.CartEntity">
+		INSERT INTO mall_cart(cart_id, u_id)
+		VALUES(#{cart_id}, #{customer.u_id})
+	</insert>
+	
+	<!-- 往购物车添加商品(一个) -->
+	<insert id="addItemToCart" parameterType="ssm.pojo.Goods.CartItemEntity">
+		INSERT INTO cart_items(cart_item_id, cart_item_count, goods_id, cart_id, specs_id)
+		VALUES(#{cart_item_id}, #{cart_item_count}, #{goods.goods_id}, #{cart.cart_id}, #{specs.specs_id})
+	</insert>
+	
+</mapper>

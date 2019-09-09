@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name = "register" namespace = "/register" extends = "struts-default">
+		<action name = "register" class = "action.Register" method = "UserRegister">
+			<result >/page/Login2.jsp</result>
+			<result name="error">/page/Error.jsp</result>
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name = "TeacherRegister" class = "action.TeacherRegister" method = "TeacherRegister">
+			<result >/page/RegisterSuccess.jsp</result>
+			<result name="error">/page/Error.jsp</result>
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+	</package>
+</struts>

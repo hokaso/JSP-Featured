@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.mapper.mallMapper.OrderMapper">
+
+	<resultMap type="ssm.pojo.Goods.OrderEntity" id="orderDetail">
+		<id column="order_id" property="order_id" />
+		<result column="order_create_time" property="order_create_time" />
+		<result column="order_paytime" property="order_paytime" />
+		<result column="order_consigneeAddress" property="order_consigneeAddress" />
+		<result column="order_message" property="order_message" />
+		<result column="order_consigneeName" property="order_consigneeName" />
+		<result column="order_consigneePhone" property="order_consigneePhone" />
+		<result column="order_totalPrice" property="order_totalPrice" />
+		<result column="order_state" property="order_state" />
+		
+		<collection property="itemList" ofType="ssm.pojo.Goods.OrderItemEntity">
+			<id column="order_item_id" property="order_item_id" />
+			<result column="item_price" property="item_price" />
+			<result column="order_item_count" property="order_item_count" />
+			
+			<association property="goods" column="goods_id" javaType="ssm.pojo.Goods.GoodsEntity">
+				<id column="goods_id" property="goods_id" />
+				<result column="goods_name" property="goods_name" />
+				<result column="goods_describe" property="goods_describe" />
+				<result column="goods_state" property="goods_state" />
+				<result column="goods_coverPic" property="goods_coverPic" />
+				<result column="goods_price" property="goods_price" />
+			</association>
+			
+			<association property="specs" column="specs_id" javaType="ssm.pojo.Goods.GoodsSpecs">
+				<id column="specs_id" property="specs_id"/>
+				<result column="specs_attrs" property="specs_attrs"/>
+				<result column="specs_stock" property="specs_stock"/>
+				<result column="specs_price" property="specs_price"/>
+				<result column="specs_img" property="specs_img"/>
+			</association>
+		</collection>
+	</resultMap>
+	
+	<!-- 查看订单详细 -->
+	<select id="findOrderDetail" parameterType="String" resultMap="orderDetail">
+		SELECT o.*, g.*, s.*, oi.*
+		FROM mall_orders o, mall_goods g, goods_specs s, order_items oi
+		WHERE o.order_id = oi.order_id 
+		AND g.goods_id = oi.goods_id 
+		AND oi.specs_id = s.specs_id 
+		AND o.order_id = #{order_id};
+	</select>
+
+	<!-- 生成订单 -->
+	<insert id="creatOrder" parameterType="ssm.pojo.Goods.OrderEntity">
+		INSERT INTO mall_orders(
+			order_id, 
+			u_id, 
+			order_create_time, 
+			order_totalPrice, 
+			order_consigneeAddress, 
+			order_message, 
+			order_consigneeName, 
+			order_consigneePhone,
+			order_state,
+			order_delete
+			)
+		VALUES(
+			#{order_id},
+			#{customer.u_id},
+			#{order_create_time},
+			#{order_totalPrice},
+			#{order_consigneeAddress},
+			#{order_message},
+			#{order_consigneeName},
+			#{order_consigneePhone},
+			#{order_state},
+			#{order_delete})
+	</insert>
+	
+	<!-- 插入订单条目 -->
+	<insert id="insertOrderItems" parameterType="ssm.pojo.Goods.OrderItemEntity">
+		INSERT INTO order_items(
+			order_item_id, 
+			order_item_count, 
+			item_price, 
+			goods_id, 
+			specs_id, 
+			order_id) 
+		VALUES(
+			#{order_item_id}, 
+			#{order_item_count}, 
+			#{item_price}, 
+			#{goods.goods_id}, 
+			#{specs.specs_id}, 
+			#{order.order_id})
+	</insert>
+	
+	<!-- 查找用户订单 -->
+	<select id="findOrdersByUid" parameterType="String" resultType="ssm.pojo.Goods.OrderEntity">
+		SELECT * FROM mall_orders 
+		WHERE u_id = #{customer.u_id} AND order_delete = 1 
+		ORDER BY  
+		order_create_time, order_paytime DESC;
+	</select>
+	
+	<!-- 修改订单状态 -->
+	<update id="updateOrderState" parameterType="ssm.pojo.Goods.OrderEntity">
+		UPDATE mall_orders SET order_state = #{order_state}
+		<if test="order_paytime != null">
+			, order_paytime=#{order_paytime} 
+		</if>
+		WHERE order_id = #{order_id}
+	</update>
+	
+	<!-- “删除订单” -->
+	<update id="deleteOrder" parameterType="ssm.pojo.Goods.OrderEntity">
+		UPDATE mall_orders SET order_delete=#{order_delete} 
+		WHERE order_id = #{order_id}
+	</update>
+	
+</mapper>

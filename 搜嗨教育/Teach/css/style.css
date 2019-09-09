@@ -1,0 +1,959 @@
+/*--
+	Author: W3Layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+dl,
+dt,
+dd,
+ol,
+nav ul,
+nav li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+ol,
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*-- start editing from here --*/
+a {
+    text-decoration: none;
+}
+
+.txt-rt {
+    text-align: right;
+}
+
+/* text align right */
+.txt-lt {
+    text-align: left;
+}
+
+/* text align left */
+.txt-center {
+    text-align: center;
+}
+
+/* text align center */
+.float-rt {
+    float: right;
+}
+
+/* float right */
+.float-lt {
+    float: left;
+}
+
+/* float left */
+.clear {
+    clear: both;
+}
+
+/* clear float */
+.pos-relative {
+    position: relative;
+}
+
+/* Position Relative */
+.pos-absolute {
+    position: absolute;
+}
+
+/* Position Absolute */
+.vertical-base {
+    vertical-align: baseline;
+}
+
+/* vertical align baseline */
+.vertical-top {
+    vertical-align: top;
+}
+
+/* vertical align top */
+nav.vertical ul li {
+    display: block;
+}
+
+/* vertical menu */
+nav.horizontal ul li {
+    display: inline-block;
+}
+
+/* horizontal menu */
+img {
+    max-width: 100%;
+}
+
+/*-- end reset --*/
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+/*-- main --*/
+
+h1 {
+    font-size: 45px;
+    color: #fff;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+/*-- slide --*/
+
+@keyframes slideleft {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 90000%;
+    }
+}
+
+@-webkit-keyframes slideleft {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 90000%;
+    }
+}
+
+.main-top-intro {
+    background-image: url('../images/banner.jpg');
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+}
+
+.bg-layer {
+    background: rgba(0, 0, 0, 0.54);
+    min-height: 100vh;
+}
+
+/*-- //slide --*/
+
+/*--header start here--*/
+header {
+    padding: 2em 0;
+}
+
+/* header */
+.wrapper {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.header-w3layouts {
+    float: left;
+}
+
+.nav_w3pvt {
+    float: left;
+    width: 50%;
+}
+
+.buttons {
+    float: right;
+}
+
+a.navbar-brand {
+    font-size: 0.9em;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    position: relative;
+    font-weight: 800;
+}
+
+a.navbar-brand.logo span.fa {
+    color: #fff;
+}
+
+.buttons a {
+    background: #00BCD4;
+    padding: 10px 25px;
+    color: #fff;
+    display: block;
+    border-radius: 0px;
+    letter-spacing: .5px;
+    border: 2px solid #00BCD4;
+}
+
+
+/* CSS Document */
+
+
+.toggle,
+[id^=drop] {
+    display: none;
+}
+
+/* Giving a background-color to the nav container. */
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+
+nav:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+nav ul {
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+
+/* Positioning the navigation items inline */
+nav ul li {
+    margin: 0px;
+    display: inline-block;
+    float: left;
+}
+
+/* Styling the links */
+nav a {
+    text-transform: capitalize;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-weight: 400;
+    display: block;
+    padding: 10px 15px;
+}
+
+
+nav ul li ul li:hover {
+    background: #f8f9fa;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+.menu li.active a {
+    color: #00BCD4;
+    background: transparent;
+}
+
+.inner-dropdown li a {
+    color: #333 !important;
+}
+
+.inner-dropdown li.active a {
+    color: #00BCD4 !important;
+}
+
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+nav ul ul {
+    display: none;
+    position: absolute;
+    /* has to be the same number as the "line-height" of "nav a" */
+    top: 30px;
+    background: #fff;
+    padding: 10px;
+}
+
+ul.inner-dropdown a:hover {
+    color: #333;
+}
+
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+    display: inherit;
+}
+
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+    width: 160px;
+    float: none;
+    display: list-item;
+    position: relative;
+}
+
+nav ul ul li a {
+    padding: 5px 10px;
+    display: block;
+    font-size: 13px;
+}
+
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+    position: relative;
+    top: -60px;
+    /* has to be the same number as the "width" of "nav ul ul li" */
+    left: 170px;
+}
+
+
+/* Change ' +' in order to change the Dropdown symbol */
+li > a:only-child:after {
+    content: '';
+}
+
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width : 992px) {
+
+    #logo {
+        display: block;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        float: none;
+    }
+
+    nav {
+        margin: 0;
+    }
+
+    .header-w3layouts {
+        float: left;
+    }
+
+    nav ul {
+        width: 100%;
+    }
+
+    /* Hide the navigation menu by default */
+    /* Also hide the  */
+    .toggle + a,
+    .menu {
+        display: none;
+    }
+
+    /* Stylinf the toggle lable */
+    .toggle {
+        display: block;
+        padding: 8px 18px;
+        font-size: 20px;
+        text-decoration: none;
+        border: none;
+        float: right;
+        background-color: #f7f7f7;
+        color: #00BCD4;
+        cursor: pointer !important;
+    }
+
+    .menu .toggle {
+        float: none;
+        text-align: center;
+        margin: auto;
+        width: 25%;
+        padding: 5px;
+        font-weight: normal;
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .toggle:hover {
+        color: #333;
+        background-color: #fff;
+    }
+
+    /* Display Dropdown when clicked on Parent Lable */
+    [id^=drop]:checked + ul {
+        display: block;
+        background: #f7f7f7;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    /* Change menu item's width to 100% */
+    nav ul li {
+        display: block;
+        width: 100%;
+        padding: 0px 0;
+    }
+
+    nav ul ul .toggle,
+    nav ul ul a {
+        padding: 0 40px;
+    }
+
+    nav ul ul ul a {
+        padding: 0 80px;
+    }
+
+    nav a:hover,
+    nav ul ul ul a {
+        background-color: transparent;
+    }
+
+    nav ul li ul li .toggle,
+    nav ul ul a,
+    nav ul ul ul a {
+        padding: 14px 20px;
+        color: #FFF;
+        font-size: 17px;
+    }
+
+    /* Hide Dropdowns by Default */
+    nav ul ul {
+        float: none;
+        position: static;
+        color: #ffffff;
+        /* has to be the same number as the "line-height" of "nav a" */
+    }
+
+    /* Hide menus on hover */
+    nav ul ul li:hover > ul,
+    nav ul li:hover > ul {
+        display: none;
+    }
+
+    /* Fisrt Tier Dropdown */
+    nav ul ul li {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+
+    nav ul ul ul li {
+        position: static;
+        /* has to be the same number as the "width" of "nav ul ul li" */
+
+    }
+
+    nav a {
+        color: #333;
+    }
+
+    nav a:hover {
+        color: #333;
+    }
+
+    .menu li.active a {
+        color: #333;
+    }
+
+    nav ul ul li a {
+        display: inline-block;
+        font-size: 15px;
+    }
+
+    ul.inner-dropdown {
+        padding-bottom: 0 !important;
+        padding-top: 8px !important;
+    }
+
+
+}
+
+@media all and (max-width : 330px) {
+
+    nav ul li {
+        display: block;
+        width: 94%;
+    }
+
+}
+
+form.newsletter {
+
+    background: transparent;
+    padding: 0.3em;
+    border: 2px solid #fff;
+}
+
+.form-w3layouts-grid .search {
+    outline: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    width: 85%;
+    background: transparent;
+    text-transform: capitalize;
+    border: none;
+    letter-spacing: 2px;
+    float: left;
+}
+
+.form-w3layouts-grid button.btn {
+    color: #fff;
+    border: none;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: transparent;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    float: right;
+    cursor: pointer;
+    width: 15%;
+    font-size: 14px;
+    text-align: center;
+}
+
+/*-- //header --*/
+
+body h2 {
+    font-size: 2.5em;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 7px;
+    margin: 1em 0 0 0;
+}
+
+.main-icon {
+    text-align: center;
+}
+
+.content-inner-info {
+    padding-top: 6em;
+}
+
+
+a {
+    color: #585858;
+    margin: 0em;
+}
+
+.bottom {
+    margin: 1em 0 0;
+}
+
+.content-w3layouts-main {
+    max-width: 350px;
+    position: relative;
+    padding: 3em 0em;
+}
+
+.header-left {
+    background: #fff;
+    padding: 0px;
+}
+
+::-webkit-input-placeholder {
+    color: #888 !important;
+}
+
+.form-w3ls-left-info input[type="text"] {
+    outline: none;
+    font-size: 14px;
+    color: #888;
+    border: none;
+    width: 92%;
+    display: inline-block;
+    letter-spacing: 2px;
+    margin: 0 0 1em;
+    padding: 1em 1em;
+    background: #fff;
+}
+
+.form-w3ls-left-info input[type="password"] {
+    outline: none;
+    font-size: 14px;
+    color: #888;
+    border: none;
+    width: 92%;
+    display: inline-block;
+    letter-spacing: 2px;
+    margin: 0 0 1em;
+    padding: 1em 1em;
+    background: #fff;
+
+}
+
+.form-w3ls-left-info button.btn {
+    background: #f54785;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 0.8em 2em;
+    letter-spacing: 1px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    float: left;
+}
+
+button.btn.reg {
+    margin-left: 2%;
+    background: #4cc2c4;
+}
+
+/*--  --*/
+.form-w3ls-left-info p {
+    color: #000;
+    display: inline-block;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+.form-w3ls-left-info p.right {
+    text-align: right;
+}
+
+.form-w3ls-left-info p a {
+    font-size: 0.7em;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.heading h5 {
+    color: #c5c5c5;
+    color: #000000;
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+/*-- header end here --*/
+
+/*-- copyright --*/
+.copy-w3layouts-inf {
+    margin-top: 2em;
+    padding: 2em 0;
+}
+
+.copy-w3layouts-inf p {
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1.8em;
+    float: left;
+
+}
+
+.copy-w3layouts-inf p a {
+    color: #fff;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+/* social-icons footer */
+ul.w3layouts-icons {
+    float: right;
+}
+
+ul.w3layouts-icons li {
+    display: inline-block;
+    margin: 0 0.3em;
+}
+
+ul.w3layouts-icons li a {
+    height: 40px;
+    width: 40px;
+    line-height: 2.5;
+    background: none;
+    background: transparent;
+    color: #fff;
+    text-align: center;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    display: inline-block;
+}
+
+ul.w3layouts-icons li a.face-b:hover {
+    background: #3b5998;
+    color: #fff;
+    border-color: #3b5998;
+}
+
+ul.w3layouts-icons li a.twit:hover {
+    background: #55acee;
+    color: #fff;
+    border-color: #55acee;
+}
+
+ul.w3layouts-icons li a.dribble:hover {
+    background: #f26522;
+    color: #fff;
+    border-color: #f26522;
+}
+
+ul.w3layouts-icons li a.vk:hover {
+    background: #45668e;
+    color: #fff;
+    border-color: #45668e;
+}
+
+/* //social-icons footer */
+/*-- //copyright --*/
+/*-- //main --*/
+
+/*-- responsive-design --*/
+
+@media(max-width:992px) {
+    header {
+        padding: 2em 0;
+        position: absolute;
+        width: 90%;
+        z-index: 999;
+    }
+}
+
+@media(max-width:800px) {
+    .nav_w3pvt {
+        float: left;
+        width: 44%;
+    }
+}
+
+@media(max-width:736px) {
+    .copy-w3layouts-inf p {
+        float: none;
+        text-align: center;
+    }
+
+    ul.w3layouts-icons {
+        float: none;
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    .nav_w3pvt {
+        float: left;
+        width: 60%;
+    }
+
+    .buttons {
+        float: right;
+        width: 40%;
+    }
+
+    .header-w3layouts {
+        float: none;
+        text-align: center;
+    }
+
+    .toggle {
+        border: none;
+        float: left;
+    }
+
+    .form-w3layouts-grid {
+        margin-top: 0.5em;
+    }
+
+    body h2 {
+        font-size: 2.3em;
+        margin: 2em 0 0 0;
+    }
+
+}
+
+
+@media(max-width:600px) {
+    .content-inner-info {
+        padding-top: 8em;
+    }
+
+    .content-inner-info {
+        padding-top: 8em;
+    }
+
+    .form-w3layouts-grid .search {
+        outline: none;
+        padding: 10px 10px;
+    }
+
+    .copy-w3layouts-inf {
+        margin-top: 1em;
+        padding: 1em 0;
+    }
+}
+
+@media(max-width:480px) {
+    header {
+        padding: 1em 0;
+    }
+
+    .menu .toggle {
+        width: 62%;
+    }
+}
+
+@media(max-width:441px) {
+
+    .form-w3ls-left-info input[type="email"],
+    .form-w3ls-left-info input[type="password"] {
+        width: 91%;
+    }
+
+    .nav_w3pvt {
+        float: left;
+        width: 60%;
+        margin: 1em 0 0 0;
+    }
+}
+
+@media(max-width:384px) {
+    body h2 {
+        font-size: 1.75em;
+        margin: 2em 0 0 0;
+    }
+
+    .content-w3layouts-main {
+        max-width: 350px;
+        padding: 2em 0em;
+    }
+
+    .content-inner-info {
+        padding-top: 7em;
+    }
+}
+
+@media(max-width:350px) {
+    body h2 {
+        font-size: 1.6em;
+    }
+}
+
+/*--//responsive--*/

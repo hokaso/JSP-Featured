@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-24 10:49:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.Student" table="student">
+        <id name="sno" type="java.lang.String">
+            <column name="sno" />
+            <generator class="assigned" />
+        </id>
+        <property name="sname" type="java.lang.String">
+            <column name="sname" />
+        </property>
+        <property name="spassword" type="java.lang.String">
+            <column name="spassword" />
+        </property>
+        <property name="ssex" type="java.lang.String">
+            <column name="ssex" />
+        </property>
+        <property name="smail" type="java.lang.String">
+            <column name="smail" />
+        </property>
+        <property name="scoin" type="int">
+            <column name="scoin" />
+        </property>
+        <property name="strend" type="java.lang.String">
+            <column name="strend" />
+        </property>
+        <property name="sregisterTime" type="java.sql.Timestamp">
+            <column name="sregisterTime" />
+        </property>
+    </class>
+</hibernate-mapping>

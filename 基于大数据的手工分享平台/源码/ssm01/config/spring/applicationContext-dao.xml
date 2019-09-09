@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- 配置 读取properties文件 jdbc.properties -->
+	<context:property-placeholder location="classpath:dbconfig.properties" ignore-unresolvable="true"/>
+
+	<!-- 配置 数据源 -->
+	
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://47.102.155.206:3306/manual_app?characterEncoding=UTF-8" />
+		<property name="username" value="root" />
+		<property name="password" value="password" />
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 设置MyBatis核心配置文件 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<!-- 设置数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 别名包扫描 -->
+		<property name="typeAliasesPackage" value="ssm.pojo" />
+	</bean>
+
+	<!-- 配置Mapper扫描 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 设置Mapper扫描包 -->
+		<property name="basePackage" value="ssm.mapper" />
+	</bean>
+	
+	<!-- 执行批量操作的sqlsession  -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg  name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<constructor-arg  name="executorType" value="BATCH"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ssm.mapper.mallMapper.MallCollectionMapper">
+
+	<resultMap type="ssm.pojo.Goods.MallCollection" id="findCollectionGoods">
+		<id column="mall_collection_id" property="mall_collection_id"/>
+		<association property="goods" column="goods_id" javaType="ssm.pojo.Goods.GoodsEntity">
+			<id column="goods_id" property="goods_id"/>
+			<result column="goods_name" property="goods_name"/>
+			<result column="goods_price" property="goods_price"/>
+			<result column="goods_state" property="goods_state"/>
+			<result column="goods_describe" property="goods_describe"/>
+			<result column="goods_coverPic" property="goods_coverPic"/>
+			<result column="goods_state" property="goods_state"/>
+		</association>
+		<association property="customer" column="u_id" javaType="ssm.pojo.Mine.Customer">
+			<id column="u_id" property="u_id"/>
+		</association>
+	</resultMap>
+
+	<!-- 查找收藏夹中的 -->
+	<select id="findCollectionByGoodsIdUid" parameterType="ssm.pojo.Goods.MallCollection" resultMap="findCollectionGoods">
+		SELECT * FROM mall_collection WHERE goods_id = #{goods.goods_id}  AND u_id = #{customer.u_id}
+	</select>
+
+	<!-- 添加到收藏夹 -->
+	<insert id="addToGoodsCollection" parameterType="ssm.pojo.Goods.MallCollection">
+		INSERT INTO mall_collection(mall_collection_id, goods_id, u_id) 
+		VALUES(#{mall_collection_id}, #{goods.goods_id}, #{customer.u_id})
+	</insert>
+
+	<!-- 查找用户的收藏 -->
+	<select id="findCollectionByUid" parameterType="String" resultMap="findCollectionGoods">
+		SELECT g.*, c.mall_collection_id FROM mall_collection c, mall_goods g
+		WHERE g.goods_id = c.goods_id AND u_id = #{u_id};
+	</select>
+	
+	<!-- 删除条目 -->
+	<delete id="deleteCollection" parameterType="String">
+		DELETE FROM mall_collection
+		WHERE mall_collection_id = #{mall_collection_id};
+	</delete>
+	
+</mapper>

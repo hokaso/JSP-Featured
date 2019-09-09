@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.mapper.commentMapper.CommentMapper">
+	
+	<resultMap type="ssm.pojo.Comment.CustomerComment" id="customerComment">
+		<result column="u_id" property="u_id"/>
+		<result column="name" property="name"/>
+		<result column="headPicPath" property="headPicPath"/>
+		<result column="c_id" property="c_id"/>
+		<result column="content" property="content"/>
+		<result column="time" property="time"/>	
+	</resultMap>
+	<select id="selectCommentByD_id" parameterType="java.lang.String" resultMap="customerComment">
+			
+		select * from customer,comment where customer.u_id = comment.u_id 
+		and comment.d_id = #{d_id} order by time desc
+		
+	</select>
+	
+</mapper>

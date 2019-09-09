@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name = "homepage" namespace = "/homepage" extends = "struts-default">
+		<action name = "homepage" class = "action.Homepage" method = "AllMessage">
+			<result >/page/HomePage.jsp</result>
+			<result name="error">/page/Error.jsp</result>
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name="AddcourseAction" class="action.Addcourse" method="addcourse">
+		<result >/page/PublishCourse1.jsp</result>
+		<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name="AddchapterAction" class="action.Addchapter" method="addchapter">
+		<result>/page/PublishCourse1.jsp</result>
+		
+		</action>
+		<action name="authorshowAction" class="action.Authorshow" method="flag3">
+		<result>/page/PublishCourse1.jsp</result>
+		</action>
+		
+	</package>
+</struts>

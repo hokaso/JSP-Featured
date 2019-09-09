@@ -1,0 +1,33 @@
+package Pet.dao.impl;
+
+import Pet.entity.SiteInfoPO;
+import Pet.dao.FooterDao;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+/**
+ * Created by GUOFENG on 2017/5/7.
+ */
+@Repository
+@SuppressWarnings("all")
+public class FooterDaoImpl extends HibernateDaoSupport implements FooterDao {
+	@Autowired
+	public void setSessionFactory0(SessionFactory sessionFactory) {
+		super.setSessionFactory(sessionFactory);
+	}
+	
+    @Override
+    public SiteInfoPO findFooter(int wsId) {
+        String hql = "FROM SiteInfoPO WHERE wsId=?";
+        List<SiteInfoPO> siteInfoPOS = (List<SiteInfoPO>) this.getHibernateTemplate().find(hql, wsId);
+        if (siteInfoPOS.size() > 0) {
+            return siteInfoPOS.get(0);
+        }
+        return null;
+    }
+}

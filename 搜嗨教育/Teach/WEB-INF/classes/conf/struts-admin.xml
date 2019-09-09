@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name = "admin" namespace = "/admin" extends = "struts-default">
+		<action name = "adminAction" class = "action.AdminAction" method = "Admin">
+			<result>/page/admin.jsp</result>
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		<action name = "TeacherSuccess" class = "action.TeacherSuccess" method = "TeacherSuccess">
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+	</package>
+</struts>

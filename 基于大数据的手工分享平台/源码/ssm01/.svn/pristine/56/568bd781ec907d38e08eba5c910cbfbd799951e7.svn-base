@@ -1,0 +1,78 @@
+package ssm.controller.mallController;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
+
+import ssm.pojo.Goods.GoodsCommentEntity;
+import ssm.pojo.Goods.GoodsCommentImageEntity;
+import ssm.service.mallService.GoodsCommentService;
+
+@Controller
+public class GoodsCommentController {
+
+	@Autowired
+	private GoodsCommentService goodsCommentService;
+
+	@RequestMapping(value = "/loadGoodsComment.action")
+	@ResponseBody
+	public String loadGoodsComment(GoodsCommentEntity commentEntity, HttpServletResponse response,
+			HttpServletRequest request) throws IOException {
+
+		// 获取项目网络地址，端口号，项目名
+		
+		int goods_degree = commentEntity.getGoods_degree();
+
+		System.out.println("loadGoodsComment->goods_degree = " + goods_degree);
+
+		List<GoodsCommentEntity> list;
+
+		if (goods_degree == 0) {
+
+			list = goodsCommentService.loadGoodsComment(commentEntity.getGoods_id());
+		} else {
+			GoodsCommentEntity goodsCommentEntity = new GoodsCommentEntity();
+			goodsCommentEntity.setGoods_degree(goods_degree);
+			goodsCommentEntity.setGoods_id(commentEntity.getGoods_id());
+			list = goodsCommentService.loadGoodsCommentByDegree(goodsCommentEntity);
+		}
+
+		String json = new Gson().toJson(list);
+		try {
+			OutputStream os = response.getOutputStream();
+			os.write(json.getBytes("utf-8"));
+			os.flush();
+			os.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return json;
+	}
+
+	
+
+	@RequestMapping(value = "/loadGoodsCommentImage.action")
+	@ResponseBody
+	public String loadGoodsCommentImage(String goods_comment_id, HttpServletRequest request) {
+		
+		
+		List<GoodsCommentImageEntity> list = goodsCommentService.loadGoodsCommentImage(goods_comment_id);
+		
+		
+		String json = new Gson().toJson(list);
+		return json;
+	}
+	
+}

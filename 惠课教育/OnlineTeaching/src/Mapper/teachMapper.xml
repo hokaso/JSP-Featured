@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Mapper.teachMapper">
+
+<insert id="teach_add_order" parameterType="teach">
+insert into teach values(#{teach_id},#{junior_id},#{course_id},#{college_id},#{teach_statue},#{score_statue},#{college_score})
+</insert>
+
+<select id="teach_find_by_id" resultType="teach" parameterType="String">
+select * from teach where teach_id=#{0}
+</select>
+
+<select id="teach_find_by_course_id" resultType="teach" parameterType="int">
+select * from teach where course_id=#{0}
+</select>
+
+<update id="teach_teach">
+update teach set teach_statue='已授课',score_statue='未评分' where teach_id=#{0}
+</update>
+
+<select id="teach_find_by_junior_id" resultType="teach" parameterType="String">
+select * from teach where junior_id=#{0}
+</select>
+
+<select id="teach_find_by_college_id" resultType="teach">
+select * from teach where college_id=#{0}
+</select>
+
+<select id="teach_average_score" resultType="int">
+select avg(college_score) from teach where score_statue='已评分' and college_id=#{0}
+</select>
+
+</mapper>

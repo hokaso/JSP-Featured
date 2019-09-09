@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-11 16:08:32 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.Comment" table="COMMENT">
+    	<composite-id>
+    		<key-property name="cono" column="cono" type="java.lang.String"></key-property>
+    		<key-property name="sno" column="sno" type="java.lang.String"></key-property>
+    		<key-property name="cno" column="cno" type="java.lang.String"></key-property>
+    	</composite-id>
+        
+        <property name="com" type="java.lang.String">
+            <column name="com" />
+        </property>
+        <property name="time" type="java.sql.Timestamp">
+            <column name="time" />
+        </property>
+    </class>
+</hibernate-mapping>

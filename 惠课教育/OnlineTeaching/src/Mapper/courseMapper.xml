@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Mapper.courseMapper">
+
+<insert id="course_add" parameterType="course">
+insert into course values(default,#{college_id},#{course_name},#{course_time},#{course_statue},#{course_intro},
+#{course_price},#{course_photo},#{course_type})
+</insert>
+
+<select id="course_show_all" resultType="course">
+select * from course where course_statue='未被购买'
+</select>
+
+<select id="course_find_by_id" resultType="course" parameterType="int">
+select * from course where course_id=#{0}
+</select>
+
+<update id="course_buy" parameterType="int">
+update course set course_statue='已被购买' where course_id=#{0}
+</update>
+
+<select id="course_find_by_name" resultType="course">
+select * from course where course_name like "%"#{0}"%" and course_statue='未被购买'
+</select>
+
+<select id="course_find_sales" resultType="int">
+select count(*) from teach where college_id=#{0}
+</select>
+
+<update id="course_update_information" parameterType="course">
+update course set course_name=#{course_name},course_time=#{course_time},course_intro=#{course_intro},
+course_price=#{course_price},course_photo=#{course_photo},course_type=#{course_type} where course_id=#{course_id}
+</update>
+
+<select id="course_find_by_type" resultType="course">
+select * from course where course_type=#{0}
+</select>
+</mapper>

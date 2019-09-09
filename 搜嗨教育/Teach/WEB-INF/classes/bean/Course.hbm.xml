@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-24 10:49:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.Course" table="course">
+    	<composite-id>
+    		<key-property name="cno" column="cno" type="java.lang.String"></key-property>
+    		<key-property name="tno" column="tno" type="java.lang.String"></key-property>
+    	</composite-id>
+        
+        <property name="cname" type="java.lang.String">
+            <column name="cname" />
+        </property>
+        <property name="ctype" type="java.lang.String">
+            <column name="ctype" />
+        </property>
+        <property name="cdescribe" type="java.lang.String">
+            <column name="cdescribe" />
+        </property>
+        <property name="cphoto" type="java.lang.String">
+            <column name="cphoto" />
+        </property>
+        <property name="ctime" type="java.sql.Timestamp">
+            <column name="ctime" />
+        </property>
+        <property name="cprice" type="int">
+            <column name="cprice" />
+        </property>
+    </class>
+</hibernate-mapping>

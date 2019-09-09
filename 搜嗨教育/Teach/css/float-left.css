@@ -1,0 +1,54 @@
+.content .float-left{
+	background: #ddd;
+	width: 270px;
+	height: 500px;
+	position: absolute;
+	left: -270px;
+	top: 20px;
+	border-radius: 10px;
+
+}
+.float-left .video-list{
+	position: absolute;
+	display: inline-block;
+	background: rgb(11,160,182);
+	width: 30px;
+	height: 107px;
+	left: 270px;
+	top: 150px;
+	text-align: center;
+	/*letter-spacing: 5px;*/
+	line-height: 23px;
+	padding-top: 10px;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+}
+.float-left .float-left-header{
+	margin-top: 25px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	color: black;	
+}
+.float-left .float-left-lists{
+	height: 420px;
+	overflow: auto;
+	border-top: 1px solid #777;
+	border-bottom: 1px solid #777;
+}
+	
+}
+.float-left .float-left-lists .lists-nav{
+	margin-left: 20px;
+}
+.float-left .float-left-lists .lists-nav li{
+	margin-bottom: 8px;
+	color: black;
+	font-size: 13px;
+	padding: 8px 0;
+	padding-left: 6px;
+}
+.float-left .float-left-lists .lists-nav li:hover{
+	background: #eee;
+	color:rgb(11,160,182);
+	cursor: pointer;
+}

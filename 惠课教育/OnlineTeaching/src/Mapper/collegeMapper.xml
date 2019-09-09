@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Mapper.collegeMapper">
+
+<select id="college_find_by_id" resultType="college" parameterType="String">
+select * from college where college_id=#{0}
+</select>
+
+<insert id="college_register" parameterType="college">
+insert into college values(#{college_id},#{college_password},#{college_name},#{college_gender},#{college_birth},#{college_phone},
+#{college_address},#{college_photo},#{college_statue})
+</insert>
+
+<select id="college_find_course"  resultType="course">
+select * from course where college_id=#{0}
+</select>
+
+<update id="college_update_information">
+update college set college_name=#{college_name},college_gender=#{college_gender},
+college_birth=#{college_birth}, college_phone=#{college_phone},college_address=#{college_address}
+where college_id=#{college_id}
+</update>
+
+<select id="college_find_password" resultType="String">
+select college_password from college where college_id=#{0}
+</select>
+
+<update id="college_update_password">
+update college set college_password=#{1} where college_id=#{0}
+</update>
+
+<select id="college_register_check" resultType="int">
+select count(*) from college where college_id=#{0} 
+</select>
+
+<select id="course_find_by_name" resultType="course">
+select * from course where course_name=#{0}
+</select>
+
+<update id="college_photo_update">
+update college set college_photo=#{1},college_statue=0 where college_id=#{0}
+</update>
+
+
+</mapper>
